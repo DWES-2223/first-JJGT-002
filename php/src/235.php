@@ -23,7 +23,7 @@
             foreach ($personas as $persona) {
                 echo "personas";
                 foreach ($variable as $key => $value) {
-                    echo
+                    echo 
                 }
             }
             ?>

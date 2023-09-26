@@ -23,10 +23,10 @@
     <?php
     $max = max($numeros);
     $min = min($numeros);
-    $mediana = array_sum($numeros)/count($numeros);
+    $media = array_sum($numeros)/count($numeros);
     echo "Max = " . $max . "<br>";
     echo "Min = " . $min . "<br>";
-    echo "Mediana = " . $mediana . "<br>";
+    echo "Media = " . $media . "<br>";
     ?>
 </body>
 </html>
