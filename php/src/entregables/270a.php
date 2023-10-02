@@ -1,5 +1,4 @@
 <?php
-$records = include "./atletes.php";
 ?>
 <table>
     <tr>

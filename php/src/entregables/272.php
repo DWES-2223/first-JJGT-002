@@ -6,9 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    $records = include "./atletes.php";
-    include "270a.php";
-    ?>
+    
 </body>
 </html>
+
+<?php
+
+function vell($array):mixed {
+    echo "";
+}

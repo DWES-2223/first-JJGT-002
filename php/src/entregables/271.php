@@ -7,7 +7,29 @@
     <link rel="stylesheet" href="Introducci%C3%B3%20de%20Record_files/font-awesome.min.css">
 </head>
 <body>
-
+<?php
+extract($_POST);
+if(isset($prova) && isset($marca) && isset($atleta) 
+&& isset($natalici) && isset($club) 
+&& isset($data) && isset($lloc)) 
+{
+    $records = include "./atletes.php";
+    
+    if(array_key_exists($prova, $records)) {
+        $records[$prova]["marca"] = $marca;
+        $records[$prova]["atleta"] = $atleta;
+        $records[$prova]["natalici"] = $natalici;
+        $records[$prova]["club"] = $club;
+        $records[$prova]["data"] = $data;
+        $records[$prova]["lloc"] = $lloc;
+        include "./270a.php";
+    } else {
+        ?>
+        <p>La prova <?=$_POST["prova"]?> no existeix en la llista de records oficials de la FEA</p>
+        <?php
+    }
+} else {
+?>
 <form method="post" action="./271.php">
     <div class="form-group row">
         <label for="prova" class="col-4 col-form-label">Prova</label>
@@ -78,34 +100,7 @@
     </div>
 </form>
 <?php
-if(isset($_POST["prova"]) && isset($_POST["marca"]) && isset($_POST["atleta"]) 
-&& isset($_POST["natalici"]) && isset($_POST["club"]) 
-&& isset($_POST["data"]) && isset($_POST["lloc"])) 
-{
-    $records = include "./atletes.php";
-    $record = array($_POST["prova"] => array("marca" => $_POST["marca"], 
-        "atleta" => $_POST["atleta"], "natalici" => $_POST["natalici"], 
-        "club" => $_POST["club"], "data" => $_POST["data"], "lloc" => $_POST["lloc"]));
-    
-    $indiceProva = array_search($_POST["prova"], $records);
-    $existePrueba = false;
-    foreach ($records as $nombreProva => $nombre) {
-        if ($nombreProva == $_POST["prova"]) {
-            $existePrueba = true;
-            $nombre = $record;
-            var_dump($nombre);
-            include "./270a.php";
-            break;
-        }
-    }
-
-    if(!$existePrueba) {
-        ?>
-        <p>La prova <?=$_POST["prova"]?> no existeix en la llista de records oficials de la FEA</p>
-        <?php
-    }
 }
 ?>
-
 </body>
 </html>
