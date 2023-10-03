@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
 <?php
+include "./functions.php";
+$records = include "./atletes.php";
 
-function vell($array):mixed {
-    echo "";
-}
+$recordMasAntiguo = vell($records);
+
+echo "El record más antiguo es " . $recordMasAntiguo . "<br>";
+echo "El record más antiguo en formato inglés es " . fecha_anglesa($recordMasAntiguo);
